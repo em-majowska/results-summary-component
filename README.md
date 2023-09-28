@@ -25,8 +25,8 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshots/screenshot-1.jpg)
-![](./screenshots/screenshot-2.jpg)
+![Mobile version](./screenshots/screenshot-1.jpeg)
+![Desktop version](./screenshots/screenshot-2.jpeg)
 
 ### Links
 
