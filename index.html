@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles/style.css">
+
+  <title>Results summary component</title>
+</head>
+
+<body>
+  <main class="wrapper">
+    <div class="result-box">
+      <h1>Your Result</h1>
+      <div class="score-circle">
+        <p class="score"><span>76</span>
+          of 100</p>
+      </div>
+      <div class="stats">
+        <h2 class="praise">Great</h2>
+        <p>You scored higher than 65% of the people who have taken these tests.
+        </p>
+      </div>
+    </div>
+    <div class="summary">
+      <h2>Summary</h2>
+      <div class="skills-grid js-skills-grid">
+      </div>
+      <button class="continue">Continue</button>
+    </div>
+  </main>
+  <script>
+    fetch('./data.json')
+      .then(res => res.json())
+      .then(data => {
+        data.forEach(skill => {
+          document.querySelector('.js-skills-grid').insertAdjacentHTML('beforeend', `<div class="${skill.category.toLowerCase()} skill">
+              <div class="skill-category"><img src=${skill.icon} class="js-icon" alt="${skill.category}"><h3 class="skill-label"> ${skill.category}</h3></div>
+              <p class="skill-score"><span>${skill.score}</span> / 100</p>
+              </div>
+            </div>`)
+        })
+      });
+  </script>
+</body>
+
+</html>
